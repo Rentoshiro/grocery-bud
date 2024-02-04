@@ -1,12 +1,21 @@
 import SingleItem from "./SingleItem";
 
-function Items({ items, removeItem }) {
+function Items({ items, removeItem, editItem }) {
   return (
-    <div className="items">
-      {items.map((item) => {
-        return <SingleItem key={item.id} item={item} removeItem={removeItem} />;
-      })}
-    </div>
+    <>
+      <div className="items">
+        {items.map((item) => {
+          return (
+            <SingleItem
+              key={item.id}
+              {...item}
+              removeItem={removeItem}
+              editItem={editItem}
+            />
+          );
+        })}
+      </div>
+    </>
   );
 }
 
